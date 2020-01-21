@@ -1,0 +1,62 @@
+﻿mysql 
+
+
+
+--
+-- 数据库： `xbase`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `Catalog`
+--
+
+CREATE TABLE `Catalog` (
+  `Id` varchar(30) NOT NULL,
+  `Name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `Product`
+--
+
+CREATE TABLE `Product` (
+  `Id` bigint(14) NOT NULL,
+  `Addtime` bigint(14) NOT NULL,
+  `Name` varchar(120) NOT NULL,
+  `CatalogId` varchar(30) NOT NULL,
+  `IsValid` tinyint(1) NOT NULL,
+  `StateVal` tinyint(4) NOT NULL,
+  `PriceVal` decimal(6,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转储表的索引
+--
+
+--
+-- 表的索引 `Catalog`
+--
+ALTER TABLE `Catalog`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- 表的索引 `Product`
+--
+ALTER TABLE `Product`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `CatalogId` (`CatalogId`);
+
+--
+-- 在导出的表使用AUTO_INCREMENT
+--
+
+--
+-- 使用表AUTO_INCREMENT `Product`
+--
+ALTER TABLE `Product`
+  MODIFY `Id` bigint(14) NOT NULL AUTO_INCREMENT;
+COMMIT;
